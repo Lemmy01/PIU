@@ -1,0 +1,13 @@
+C:\Users\Lemmy\Desktop\Piu\EmployeeManagment\obj\Debug\EmployeeManagment.csproj.AssemblyReference.cache
+C:\Users\Lemmy\Desktop\Piu\EmployeeManagment\obj\Debug\EmployeeManagment.csproj.SuggestedBindingRedirects.cache
+C:\Users\Lemmy\Desktop\Piu\EmployeeManagment\obj\Debug\EmployeeManagment.csproj.CoreCompileInputs.cache
+C:\Users\Lemmy\Desktop\Piu\EmployeeManagment\bin\Debug\EmployeeManagment.exe.config
+C:\Users\Lemmy\Desktop\Piu\EmployeeManagment\bin\Debug\EmployeeManagment.exe
+C:\Users\Lemmy\Desktop\Piu\EmployeeManagment\bin\Debug\EmployeeManagment.pdb
+C:\Users\Lemmy\Desktop\Piu\EmployeeManagment\bin\Debug\LibrarieModele.dll
+C:\Users\Lemmy\Desktop\Piu\EmployeeManagment\bin\Debug\NivelStocareDate.dll
+C:\Users\Lemmy\Desktop\Piu\EmployeeManagment\bin\Debug\LibrarieModele.pdb
+C:\Users\Lemmy\Desktop\Piu\EmployeeManagment\bin\Debug\NivelStocareDate.pdb
+C:\Users\Lemmy\Desktop\Piu\EmployeeManagment\obj\Debug\EmployeeManagment.csproj.CopyComplete
+C:\Users\Lemmy\Desktop\Piu\EmployeeManagment\obj\Debug\EmployeeManagment.exe
+C:\Users\Lemmy\Desktop\Piu\EmployeeManagment\obj\Debug\EmployeeManagment.pdb

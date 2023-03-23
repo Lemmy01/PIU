@@ -1,0 +1,6 @@
+C:\Users\Lemmy\Desktop\Piu\LibrarieModele\bin\Debug\LibrarieModele.dll
+C:\Users\Lemmy\Desktop\Piu\LibrarieModele\bin\Debug\LibrarieModele.pdb
+C:\Users\Lemmy\Desktop\Piu\LibrarieModele\obj\Debug\LibrarieModele.csproj.AssemblyReference.cache
+C:\Users\Lemmy\Desktop\Piu\LibrarieModele\obj\Debug\LibrarieModele.csproj.CoreCompileInputs.cache
+C:\Users\Lemmy\Desktop\Piu\LibrarieModele\obj\Debug\LibrarieModele.dll
+C:\Users\Lemmy\Desktop\Piu\LibrarieModele\obj\Debug\LibrarieModele.pdb
