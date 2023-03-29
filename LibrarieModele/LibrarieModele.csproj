@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administrator.cs" />
     <Compile Include="Bussiness.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Person.cs" />

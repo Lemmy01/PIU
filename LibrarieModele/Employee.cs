@@ -9,7 +9,7 @@ namespace LibarieModele
 {
     public class Employee:Person
     {
-        private const int ID = 4;
+        private const int ID = 0;
         private const int ROLE = 5;
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
         private int employeeId { get; set; }
@@ -35,7 +35,7 @@ namespace LibarieModele
         {
             string baseString = base.ConversieLaSir_PentruFisier();
             string objForFile = string.Format(
-                "{1}{2}{0}{3}{0}",
+                "{2}{0}{1}{3}{0}",
                 SEPARATOR_PRINCIPAL_FISIER,baseString,employeeId,role
                 );
             return objForFile;
@@ -44,13 +44,18 @@ namespace LibarieModele
         public override string Info()
         {
             string baseInfo= base.Info();
-            string info = string.Format("{0} IdAngajat:{1} ,Role:{2}",
+            string info = string.Format("IdAngajat:{1} ,{0} ,Role:{2}",
                baseInfo.ToString(),
                (employeeId.ToString() ?? " NECUNOSCUT "),
                (role ?? " NECUNOSCUT "));
 
             return info;
 
+        }
+
+        public void SetIdEmployee(int idEmployee)
+        {
+            this.employeeId = idEmployee;
         }
     }
 

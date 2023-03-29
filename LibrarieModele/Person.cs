@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,10 +12,10 @@ namespace LibarieModele
     {
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
 
-        private const int CNP = 0;
-        private const int NAME = 1;
-        private const int SURNAME = 2;
-        private const int GENDER = 3;
+        private const int CNP = 1;
+        private const int NAME = 2;
+        private const int SURNAME = 3;
+        private const int GENDER = 4;
         private int cnp { get; set; }
         private string name { get; set; }
         private string surname { get; set; }
@@ -59,6 +60,9 @@ namespace LibarieModele
                 SEPARATOR_PRINCIPAL_FISIER,
                 cnp.ToString(),
                 (name ?? " NECUNOSCUT "),
+            
+
+
                 (surname ?? " NECUNOSCUT "),
                 (gender ?? "NECUNOSCUT"));
 
