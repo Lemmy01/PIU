@@ -12,10 +12,11 @@ namespace LibarieModele
     {
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
 
-        private const int ADDRESS = 0;
-        private const int NAME = 1;
-        private const int PHONE = 2;
-        private const int CITY = 3;
+        private const int ID = 0;
+        private const int ADDRESS = 1;
+        private const int NAME = 2;
+        private const int PHONE = 3;
+        private const int CITY = 4;
 
         private string address { get; set; }
         private string name { get; set; }
@@ -24,25 +25,23 @@ namespace LibarieModele
 
         private string cityName { get; set; }
 
-        private List<string> employeeIds { get; set; }
+        private int id { get; set; }
 
-        public void addID(string id)
-        {
-            employeeIds.Add(id);
-        }
+      
 
         public Bussiness()
         {
             address =  name = phoneNumber = cityName = string.Empty;
-            employeeIds = new List<string>();
+            id = 0;
         }
 
-        public Bussiness(string name, string phoneNumber, string cityName, string address)
+        public Bussiness(int id,string name, string phoneNumber, string cityName, string address)
         {
             this.phoneNumber = phoneNumber;
             this.name = name;
             this.cityName = cityName;
             this.address = address;
+            this.id = id;
         }
 
         public Bussiness(string linieFisier)
@@ -54,19 +53,21 @@ namespace LibarieModele
             name = dateFisier[NAME];
             phoneNumber = dateFisier[PHONE];
             cityName = dateFisier[CITY];
+            id = Convert.ToInt32(dateFisier[ID]);
         }
 
 
         public string ConversieLaSir_PentruFisier()
         {
-            string obiectStudentPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}",
+            string obiectPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}",
                 SEPARATOR_PRINCIPAL_FISIER,
-                address,
+                (id.ToString()  ?? "NECUNOSCUT"),
+                (address ?? " NECUNOSCUT "),    
                 (name ?? " NECUNOSCUT "),
                 (phoneNumber ?? " NECUNOSCUT "),
                 (cityName ?? "NECUNOSCUT"));
 
-            return obiectStudentPentruFisier;
+            return obiectPentruFisier;
         }
     }
 }

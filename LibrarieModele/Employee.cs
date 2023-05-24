@@ -11,17 +11,25 @@ namespace LibarieModele
     {
         private const int ID = 0;
         private const int ROLE = 5;
+        private const int BUSINESSID = 6;
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
-        private int employeeId { get; set; }
-        private string role { get; set; }
+
+
+        public int employeeId { get; set; }
+        public string role { get; set; }
+
+        public int businessId { get; set; }
+
 
         public Employee():base() {
             employeeId = 0;
             role = string.Empty;
         }
-        public Employee(int cnp, string name, string surname, string gender, int employeeId, string role) :base(cnp,name,surname,gender){
+        public Employee(int cnp, string name, string surname, string gender, int employeeId, string role, int businessId) : base(cnp, name, surname, gender)
+        {
             this.employeeId = employeeId;
             this.role = role;
+            this.businessId = businessId;
         }
         public Employee(string linieFisier) : base(linieFisier)
         {
@@ -29,14 +37,15 @@ namespace LibarieModele
 
             employeeId = Convert.ToInt32(dateFisier[ID]);
             role = dateFisier[ROLE];
+            businessId = Convert.ToInt32(dateFisier[BUSINESSID]);
         }
 
         public override string ConversieLaSir_PentruFisier()
         {
             string baseString = base.ConversieLaSir_PentruFisier();
             string objForFile = string.Format(
-                "{2}{0}{1}{3}{0}",
-                SEPARATOR_PRINCIPAL_FISIER,baseString,employeeId,role
+                "{2}{0}{1}{3}{0}{4}{0}",
+                SEPARATOR_PRINCIPAL_FISIER,baseString,employeeId,role,businessId
                 );
             return objForFile;
         }
@@ -44,19 +53,17 @@ namespace LibarieModele
         public override string Info()
         {
             string baseInfo= base.Info();
-            string info = string.Format("IdAngajat:{1} ,{0} ,Role:{2}",
+            string info = string.Format("IdAngajat:{1} ,{0} ,Role:{2} , Business: {3}",
                baseInfo.ToString(),
                (employeeId.ToString() ?? " NECUNOSCUT "),
-               (role ?? " NECUNOSCUT "));
+               (role ?? " NECUNOSCUT "),
+               (businessId.ToString() ?? "NECUNOSCUT"));
 
             return info;
 
         }
 
-        public void SetIdEmployee(int idEmployee)
-        {
-            this.employeeId = idEmployee;
-        }
+
     }
 
 

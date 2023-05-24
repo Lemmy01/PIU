@@ -16,10 +16,10 @@ namespace LibarieModele
         private const int NAME = 2;
         private const int SURNAME = 3;
         private const int GENDER = 4;
-        private int cnp { get; set; }
-        private string name { get; set; }
-        private string surname { get; set; }
-        private string gender { get; set; }
+        public int cnp { get; set; }
+        public string name { get; set; }
+        public string surname { get; set; }
+        public string gender { get; set; }
         public Person()
         {
             this.cnp = 0;
@@ -60,9 +60,6 @@ namespace LibarieModele
                 SEPARATOR_PRINCIPAL_FISIER,
                 cnp.ToString(),
                 (name ?? " NECUNOSCUT "),
-            
-
-
                 (surname ?? " NECUNOSCUT "),
                 (gender ?? "NECUNOSCUT"));
 

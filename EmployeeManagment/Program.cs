@@ -3,6 +3,7 @@
 using NivelStocareDate;
 
 using System;
+using System.Collections.Generic;
 
 namespace EmployeeManagment
 {
@@ -10,18 +11,20 @@ namespace EmployeeManagment
     {
         static void Main(string[] args)
         {
-            string numeFisier = "EmployeeFile";
+            string numeFisier1 = "EmployeeFile";
+            string numeFisier2 = "BussinessFile";
             Employee employee = new Employee();
             int nrEmployee = 0;
-            AdministrareEmployee_fisierText administrareEmployee_FisierText = new AdministrareEmployee_fisierText(numeFisier);
-            nrEmployee++;
+            int nrBussiness = 0;
+            AdministrareEmployee_fisierText administrareEmployee_FisierText = new AdministrareEmployee_fisierText(numeFisier1);
+            AdministrareBussiness_fisierText administrareBussiness_FisierText = new AdministrareBussiness_fisierText(numeFisier2);
+            
             if (args.Length == 0) {
             administrareEmployee_FisierText.GetEmployees(out nrEmployee);
-
+            administrareBussiness_FisierText.GetBussiness(out nrBussiness);
 
             Console.Write("Linia de comanda nu contine argumente\n");
             
-
             Console.WriteLine("Introdu CNP angajatului  : ");
             int cnp = Convert.ToInt32(Console.ReadLine());
 
@@ -38,14 +41,16 @@ namespace EmployeeManagment
             string role = Console.ReadLine();
 
 
-            employee = new Employee(cnp, nume, prenume, gender, nrEmployee, role);
+            employee = new Employee(cnp, nume, prenume, gender, nrEmployee, role, nrBussiness);
             nrEmployee++;
 
             Console.WriteLine(employee.Info());
 
             administrareEmployee_FisierText.AddEmployee(employee);
 
-            Employee[] employees = administrareEmployee_FisierText.GetEmployees(out nrEmployee);
+
+
+            List<Employee> employees = administrareEmployee_FisierText.GetEmployees(out nrEmployee);
                 Console.WriteLine("Afisare din Fisier:\n");
             afisare(employees, nrEmployee);
             Console.ReadKey();
@@ -59,13 +64,14 @@ namespace EmployeeManagment
                 // afisarea argumentelor liniei de comanda
                 foreach (string param in args)
                 {
-                    Employee[] employees = administrareEmployee_FisierText.GetEmployees(out nrEmployee);
+                    List<Employee> employees = administrareEmployee_FisierText.GetEmployees(out nrEmployee);
                     afisare(employees, nrEmployee);
                     Console.ReadKey();
                 }    
+                
             }
         }
-        public static void afisare(Employee[] list,int nrEmployee)
+        public static void afisare(List<Employee> list,int nrEmployee)
         {
             for ( int i =0;i<nrEmployee;i++)
             {
