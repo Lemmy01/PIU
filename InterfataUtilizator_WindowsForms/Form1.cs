@@ -3,6 +3,7 @@
 using NivelStocareDate;
 
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace InterfataUtilizator_WindowsForms
 {
@@ -27,8 +29,9 @@ namespace InterfataUtilizator_WindowsForms
         private RadioButton maleRadioButton;
         private RadioButton femaleRadioButton;
         private RadioButton femaleBox;
-        private TextBox roleTextBox;
-
+        private CheckBox role1TextBox;
+        private CheckBox role2TextBox;
+        private CheckBox role3TextBox;
 
         private Label lblHeaderNume;
         private Label lblHeaderPrenume;
@@ -36,10 +39,12 @@ namespace InterfataUtilizator_WindowsForms
         private Label lblHeaderRol;
         private Label lblHeaderCNP;
         private Label lblHeaderBussiness;
+        private Label nameLabel;
+        private Label surnameLabel;
 
         private Label[] lblsNume;
         private Label[] lblsPrenume;
-        private Label[] lblsRol;
+      //  private Label[][] lblsRol;
         private Label[] lblsCNP;
         private Label[] lblsGen;
         private Label[] lblsBussiness;
@@ -48,6 +53,8 @@ namespace InterfataUtilizator_WindowsForms
         private const int DIMENSIUNE_PAS_Y = 30;
         private const int DIMENSIUNE_PAS_X = 120;
         private const int OFFSET_X = 600;
+
+        ArrayList slujbeSelectate = new ArrayList();
         public Form1()
         {
             adminEmployee = new AdministrareEmployee_fisierText(numeFisier1);
@@ -120,14 +127,14 @@ namespace InterfataUtilizator_WindowsForms
             int nrEmployees = employees.Count;
             lblsNume = new Label[nrEmployees];
             lblsPrenume = new Label[nrEmployees];
-            lblsRol = new Label[nrEmployees];
-            lblsCNP= new Label[nrEmployees];
+           // lblsRol = new Label[nrEmployees][employee];
+            lblsCNP = new Label[nrEmployees];
             lblsGen = new Label[nrEmployees];
             lblsBussiness = new Label[nrEmployees];
              int i = 0;
             foreach (Employee employee in employees)
             {
-      
+        
                 lblsNume[i] = new Label();
                 lblsNume[i].Width = LATIME_CONTROL;
                 lblsNume[i].Text = employee.name;
@@ -142,31 +149,33 @@ namespace InterfataUtilizator_WindowsForms
                 lblsPrenume[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
                 this.Controls.Add(lblsPrenume[i]);
 
-              
-                lblsRol[i] = new Label();
-                lblsRol[i].Width = LATIME_CONTROL;
-                lblsRol[i].Text = employee.role;
-                lblsRol[i].Left = OFFSET_X + 2 * DIMENSIUNE_PAS_X;
-                lblsRol[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsRol[i]);
+            //  for(int j=0;j<employee.role.Count;j++) {
+             //       lblsRol[i][j] = new Label();
+             //       lblsRol[i][j].Width = LATIME_CONTROL;
+             //       lblsRol[i][j].Text = employee.role[j].ToString();
+             //       lblsRol[i][j].Left = OFFSET_X + 2 * DIMENSIUNE_PAS_X;
+            //        lblsRol[i][j].Top = (i + 1) * DIMENSIUNE_PAS_Y;
+            //        this.Controls.Add(lblsRol[i][j]);
+             //   }
+
 
                 lblsGen[i] = new Label();
                 lblsGen[i].Width = LATIME_CONTROL;
-                lblsGen[i].Text = employee.role;
+                lblsGen[i].Text = employee.gender;
                 lblsGen[i].Left = OFFSET_X + 3 * DIMENSIUNE_PAS_X;
                 lblsGen[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
                 this.Controls.Add(lblsGen[i]);
 
                 lblsCNP[i] = new Label();
                 lblsCNP[i].Width = LATIME_CONTROL;
-                lblsCNP[i].Text = employee.role;
+                lblsCNP[i].Text = employee.cnp.ToString();
                 lblsCNP[i].Left = OFFSET_X + 4 * DIMENSIUNE_PAS_X;
                 lblsCNP[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
                 this.Controls.Add(lblsCNP[i]);
 
                 lblsBussiness[i] = new Label();
                 lblsBussiness[i].Width = LATIME_CONTROL;
-                lblsBussiness[i].Text = employee.role;
+                lblsBussiness[i].Text = employee.businessId.ToString();
                 lblsBussiness[i].Left = OFFSET_X + 5 * DIMENSIUNE_PAS_X;
                 lblsBussiness[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
                 this.Controls.Add(lblsBussiness[i]);
@@ -178,7 +187,7 @@ namespace InterfataUtilizator_WindowsForms
         private void AddEmployeeControls()
         {
             // Eticheta și caseta de text pentru Nume
-            Label nameLabel = new Label();
+            nameLabel = new Label();
             nameLabel.Text = "Nume:";
             nameLabel.Location = new Point(50, 50);
             Controls.Add(nameLabel);
@@ -188,7 +197,7 @@ namespace InterfataUtilizator_WindowsForms
             Controls.Add(nameTextBox);
 
             // Eticheta și caseta de text pentru Prenume
-            Label surnameLabel = new Label();
+            surnameLabel = new Label();
             surnameLabel.Text = "Prenume:";
             surnameLabel.Location = new Point(50, 80);
             Controls.Add(surnameLabel);
@@ -213,9 +222,23 @@ namespace InterfataUtilizator_WindowsForms
             roleLabel.Location = new Point(50, 140);
             Controls.Add(roleLabel);
 
-             roleTextBox = new TextBox();
-            roleTextBox.Location = new Point(150, 140);
-            Controls.Add(roleTextBox);
+            role1TextBox = new CheckBox();
+            role1TextBox.Text = "Casier";
+            role1TextBox.Location = new Point(150, 140);
+            role1TextBox.CheckedChanged += Ckb_CheckedChanged;
+            Controls.Add(role1TextBox);
+
+            role2TextBox = new CheckBox();
+            role2TextBox.Text = "Spalator";
+            role2TextBox.Location = new Point(300, 140);
+            role2TextBox.CheckedChanged += Ckb_CheckedChanged;
+            Controls.Add(role2TextBox);
+
+            role3TextBox = new CheckBox();
+            role3TextBox.Text = "Manager";
+            role3TextBox.Location = new Point(450, 140);
+            role3TextBox.CheckedChanged += Ckb_CheckedChanged;
+            Controls.Add(role3TextBox);
 
             // Eticheta și caseta de selectare pentru Gen
             Label genderLabel = new Label();
@@ -258,7 +281,7 @@ namespace InterfataUtilizator_WindowsForms
             string nume = nameTextBox.Text;
             string prenume = surnameTextBox.Text;
             string cnp = cnpTextBox.Text;
-            string rol = roleTextBox.Text;
+            
             string gen;
             string idBusiness = businessIdTextBox.Text;
 
@@ -270,12 +293,26 @@ namespace InterfataUtilizator_WindowsForms
                 gen = femaleRadioButton.Text;
             }
             // Crează un obiect de tip Employee și setează proprietățile corespunzătoare
-            Employee employee = new Employee(Convert.ToInt32(cnp),nume,prenume,gen, nrEmployee, rol,Convert.ToInt32(idBusiness));
-            nrEmployee++;
+            if(nume == "")
+            {
+                nameLabel.ForeColor = Color.Red;
+                return;
+            }
+            if(prenume == "")
+            {
+                lblHeaderPrenume.ForeColor = Color.Red;
+                return;
+            }
 
+
+            Employee employee = new Employee(Convert.ToInt32(cnp),nume,prenume,gen, nrEmployee,Convert.ToInt32(idBusiness));
+            nrEmployee++;
+            employee.role.AddRange(slujbeSelectate);
             adminEmployee.AddEmployee(employee);
             // Salvează obiectul Employee într-un loc specific sau utilizează obiectul cum dorești
             // Exemplu: employee.SaveToDatabase();
+            ClearControls();
+            InitializeComponent();
         }
 
         private void AddEmplButton_Click(object sender, EventArgs e)
@@ -299,13 +336,23 @@ namespace InterfataUtilizator_WindowsForms
         {
             // Codul pentru salvarea angajatului
             SaveEmployee();
-            ClearControls();
-            InitializeComponent();
+
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
 
+        private void Ckb_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox checkBoxControl = sender as CheckBox; //operator 'as'
+            //sau
+            //CheckBox checkBoxControl = (CheckBox)sender;  //operator cast
+
+            string slujbaSelectate = checkBoxControl.Text;
+
+            //verificare daca checkbox-ul asupra caruia s-a actionat este selectat
+            if (checkBoxControl.Checked == true)
+                slujbeSelectate.Add(slujbaSelectate);
+            else
+                slujbeSelectate.Remove(slujbaSelectate);
         }
     }
 }

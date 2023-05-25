@@ -4,3 +4,9 @@ C:\Users\Lemmy\Desktop\Piu\LibrarieModele\obj\Debug\LibrarieModele.csproj.Assemb
 C:\Users\Lemmy\Desktop\Piu\LibrarieModele\obj\Debug\LibrarieModele.csproj.CoreCompileInputs.cache
 C:\Users\Lemmy\Desktop\Piu\LibrarieModele\obj\Debug\LibrarieModele.dll
 C:\Users\Lemmy\Desktop\Piu\LibrarieModele\obj\Debug\LibrarieModele.pdb
+C:\Users\STUDENT\Desktop\New folder\PIU\LibrarieModele\bin\Debug\LibrarieModele.dll
+C:\Users\STUDENT\Desktop\New folder\PIU\LibrarieModele\bin\Debug\LibrarieModele.pdb
+C:\Users\STUDENT\Desktop\New folder\PIU\LibrarieModele\obj\Debug\LibrarieModele.csproj.AssemblyReference.cache
+C:\Users\STUDENT\Desktop\New folder\PIU\LibrarieModele\obj\Debug\LibrarieModele.csproj.CoreCompileInputs.cache
+C:\Users\STUDENT\Desktop\New folder\PIU\LibrarieModele\obj\Debug\LibrarieModele.dll
+C:\Users\STUDENT\Desktop\New folder\PIU\LibrarieModele\obj\Debug\LibrarieModele.pdb
