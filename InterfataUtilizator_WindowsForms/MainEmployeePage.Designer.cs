@@ -1,6 +1,6 @@
 ﻿namespace InterfataUtilizator_WindowsForms
 {
-    partial class Form1
+    partial class MainEmployeePage
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,15 @@
             this.viewEmplButton = new System.Windows.Forms.Button();
             this.AddEmplButton = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.bsnButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // viewEmplButton
             // 
-            this.viewEmplButton.Location = new System.Drawing.Point(44, 115);
+            this.viewEmplButton.Location = new System.Drawing.Point(12, 37);
             this.viewEmplButton.Name = "viewEmplButton";
-            this.viewEmplButton.Size = new System.Drawing.Size(109, 23);
+            this.viewEmplButton.Size = new System.Drawing.Size(109, 42);
             this.viewEmplButton.TabIndex = 0;
             this.viewEmplButton.Text = "View Employees";
             this.viewEmplButton.UseVisualStyleBackColor = true;
@@ -45,22 +47,44 @@
             // 
             // AddEmplButton
             // 
-            this.AddEmplButton.Location = new System.Drawing.Point(44, 167);
+            this.AddEmplButton.Location = new System.Drawing.Point(12, 109);
             this.AddEmplButton.Name = "AddEmplButton";
-            this.AddEmplButton.Size = new System.Drawing.Size(109, 23);
+            this.AddEmplButton.Size = new System.Drawing.Size(109, 45);
             this.AddEmplButton.TabIndex = 2;
-            this.AddEmplButton.Text = "Add Employees";
+            this.AddEmplButton.Text = "Add Employee";
             this.AddEmplButton.UseVisualStyleBackColor = true;
             this.AddEmplButton.Click += new System.EventHandler(this.AddEmplButton_Click);
             // 
-            // Form1
+            // deleteButton
+            // 
+            this.deleteButton.Location = new System.Drawing.Point(12, 200);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(109, 45);
+            this.deleteButton.TabIndex = 3;
+            this.deleteButton.Text = "Delete Employee";
+            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // bsnButton
+            // 
+            this.bsnButton.Location = new System.Drawing.Point(12, 320);
+            this.bsnButton.Name = "bsnButton";
+            this.bsnButton.Size = new System.Drawing.Size(109, 47);
+            this.bsnButton.TabIndex = 4;
+            this.bsnButton.Text = "Bussinesses";
+            this.bsnButton.UseVisualStyleBackColor = true;
+            this.bsnButton.Click += new System.EventHandler(this.bsnButton_Click);
+            // 
+            // MainEmployeePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 598);
+            this.ClientSize = new System.Drawing.Size(1096, 478);
+            this.Controls.Add(this.bsnButton);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.AddEmplButton);
             this.Controls.Add(this.viewEmplButton);
-            this.Name = "Form1";
+            this.Name = "MainEmployeePage";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
@@ -71,6 +95,8 @@
         private System.Windows.Forms.Button viewEmplButton;
         private System.Windows.Forms.Button AddEmplButton;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Button bsnButton;
     }
 }
 

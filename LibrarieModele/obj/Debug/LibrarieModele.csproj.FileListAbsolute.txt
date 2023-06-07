@@ -10,3 +10,9 @@ C:\Users\STUDENT\Desktop\New folder\PIU\LibrarieModele\obj\Debug\LibrarieModele.
 C:\Users\STUDENT\Desktop\New folder\PIU\LibrarieModele\obj\Debug\LibrarieModele.csproj.CoreCompileInputs.cache
 C:\Users\STUDENT\Desktop\New folder\PIU\LibrarieModele\obj\Debug\LibrarieModele.dll
 C:\Users\STUDENT\Desktop\New folder\PIU\LibrarieModele\obj\Debug\LibrarieModele.pdb
+C:\Users\vasil\Desktop\PIU\LibrarieModele\bin\Debug\LibrarieModele.dll
+C:\Users\vasil\Desktop\PIU\LibrarieModele\bin\Debug\LibrarieModele.pdb
+C:\Users\vasil\Desktop\PIU\LibrarieModele\obj\Debug\LibrarieModele.csproj.AssemblyReference.cache
+C:\Users\vasil\Desktop\PIU\LibrarieModele\obj\Debug\LibrarieModele.csproj.CoreCompileInputs.cache
+C:\Users\vasil\Desktop\PIU\LibrarieModele\obj\Debug\LibrarieModele.dll
+C:\Users\vasil\Desktop\PIU\LibrarieModele\obj\Debug\LibrarieModele.pdb

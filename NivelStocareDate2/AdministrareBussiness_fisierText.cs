@@ -32,9 +32,9 @@ namespace NivelStocareDate
             }
         }
 
-        public Bussiness[] GetBussiness(out int nrBussiness)
+        public List<Bussiness> GetBussiness(out int nrBussiness)
         {
-            Bussiness[] bussiness = new Bussiness[NR_MAX_ANGAJATI];
+            List<Bussiness> bussinesses = new List<Bussiness>();
 
 
             using (StreamReader streamReader = new StreamReader(numeFisier))
@@ -45,12 +45,44 @@ namespace NivelStocareDate
 
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    bussiness[nrBussiness++] = new Bussiness(linieFisier);
+                  bussinesses.Add(new Bussiness(linieFisier));
                 }
             }
+            nrBussiness = bussinesses.Count;
 
-
-            return bussiness;
+            return bussinesses;
         }
+        public void ClearFile(string fileName)
+        {
+            File.WriteAllText(fileName, string.Empty);
+        }
+
+        public void DeleteEmployee(int employeeId)
+        {
+            int nrBussinesses;
+            List<Bussiness> bussinesses = GetBussiness(out nrBussinesses);
+
+            ClearFile(numeFisier);
+
+            foreach (Bussiness bussiness in bussinesses)
+            {
+                if (bussiness.id == employeeId)
+                {
+                    bussinesses.Remove(bussiness);
+                    break;
+                }
+            }
+            foreach (Bussiness bussiness in bussinesses)
+            {
+
+                if (bussiness.id > employeeId)
+                {
+                    bussiness.id--;
+
+                }
+                AddBussiness(bussiness);
+            }
+        }
+
     }
 }

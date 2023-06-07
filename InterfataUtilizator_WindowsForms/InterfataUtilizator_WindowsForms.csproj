@@ -46,16 +46,70 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="AddBussinessForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AddBussinessForm.Designer.cs">
+      <DependentUpon>AddBussinessForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEmployeeForm.Designer.cs">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckBusinesses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckBusinesses.Designer.cs">
+      <DependentUpon>CheckBusinesses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteBussinessForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteBussinessForm.Designer.cs">
+      <DependentUpon>DeleteBussinessForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteEmployeeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteEmployeeForm.Designer.cs">
+      <DependentUpon>DeleteEmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainBussinessesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainBussinessesForm.Designer.cs">
+      <DependentUpon>MainBussinessesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainEmployeePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainEmployeePage.Designer.cs">
+      <DependentUpon>MainEmployeePage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AddBussinessForm.resx">
+      <DependentUpon>AddBussinessForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEmployeeForm.resx">
+      <DependentUpon>AddEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckBusinesses.resx">
+      <DependentUpon>CheckBusinesses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteBussinessForm.resx">
+      <DependentUpon>DeleteBussinessForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteEmployeeForm.resx">
+      <DependentUpon>DeleteEmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainBussinessesForm.resx">
+      <DependentUpon>MainBussinessesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainEmployeePage.resx">
+      <DependentUpon>MainEmployeePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -83,6 +137,10 @@
     <ProjectReference Include="..\LibrarieModele\LibrarieModele.csproj">
       <Project>{28825EC5-A0F0-4E76-B29E-80F3A6F7B703}</Project>
       <Name>LibrarieModele</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NivelStocareDate2\NivelStocareDate2.csproj">
+      <Project>{44ae1394-f793-4807-8cc9-d61c9e2da8fa}</Project>
+      <Name>NivelStocareDate2</Name>
     </ProjectReference>
     <ProjectReference Include="..\NivelStocareDate\NivelStocareDate.csproj">
       <Project>{C67F570F-8F66-46F3-A7CA-ACFB4D9B4EC6}</Project>

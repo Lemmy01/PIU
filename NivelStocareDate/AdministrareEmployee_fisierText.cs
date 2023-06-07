@@ -50,9 +50,40 @@ namespace NivelStocareDate
                 }
             }
 
-            
+            nrEmployee= employees.Count;
             return employees;
         }
+        public void ClearFile(string fileName)
+        {
+            File.WriteAllText(fileName, string.Empty);
+        }
+
+        public void DeleteEmployee(int employeeId)
+        {
+            int nrEmployee;
+            List<Employee> employees = GetEmployees(out nrEmployee);
+
+            ClearFile(numeFisier);
+
+                foreach (Employee employee in employees)
+            {
+                if(employee.employeeId == employeeId)
+                {
+                    employees.Remove(employee);
+                    break;
+                }
+            }
+            foreach (Employee employee in employees) {
+
+                if (employee.employeeId > employeeId)
+                {
+                    employee.employeeId--;
+                    
+                }
+                AddEmployee(employee);
+            }
+        }
+
     }
 
 }   

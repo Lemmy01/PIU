@@ -16,3 +16,12 @@ C:\Users\STUDENT\Desktop\New folder\PIU\NivelStocareDate\obj\Debug\NivelStocareD
 C:\Users\STUDENT\Desktop\New folder\PIU\NivelStocareDate\obj\Debug\NivelStocareDate.csproj.CopyComplete
 C:\Users\STUDENT\Desktop\New folder\PIU\NivelStocareDate\obj\Debug\NivelStocareDate.dll
 C:\Users\STUDENT\Desktop\New folder\PIU\NivelStocareDate\obj\Debug\NivelStocareDate.pdb
+C:\Users\vasil\Desktop\PIU\NivelStocareDate\bin\Debug\NivelStocareDate.dll
+C:\Users\vasil\Desktop\PIU\NivelStocareDate\bin\Debug\NivelStocareDate.pdb
+C:\Users\vasil\Desktop\PIU\NivelStocareDate\bin\Debug\LibrarieModele.dll
+C:\Users\vasil\Desktop\PIU\NivelStocareDate\bin\Debug\LibrarieModele.pdb
+C:\Users\vasil\Desktop\PIU\NivelStocareDate\obj\Debug\NivelStocareDate.csproj.AssemblyReference.cache
+C:\Users\vasil\Desktop\PIU\NivelStocareDate\obj\Debug\NivelStocareDate.csproj.CoreCompileInputs.cache
+C:\Users\vasil\Desktop\PIU\NivelStocareDate\obj\Debug\NivelStocareDate.csproj.CopyComplete
+C:\Users\vasil\Desktop\PIU\NivelStocareDate\obj\Debug\NivelStocareDate.dll
+C:\Users\vasil\Desktop\PIU\NivelStocareDate\obj\Debug\NivelStocareDate.pdb

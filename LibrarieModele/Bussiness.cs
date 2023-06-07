@@ -18,24 +18,25 @@ namespace LibarieModele
         private const int PHONE = 3;
         private const int CITY = 4;
 
-        private string address { get; set; }
-        private string name { get; set; }
+        public string address { get; set; }
+        public string name { get; set; }
 
-        private string phoneNumber { get; set; }
+        public int phoneNumber { get; set; }
 
-        private string cityName { get; set; }
+        public string cityName { get; set; }
 
-        private int id { get; set; }
+        public int id { get; set; }
 
       
 
         public Bussiness()
         {
-            address =  name = phoneNumber = cityName = string.Empty;
+            phoneNumber = 0;
+            address =  name = cityName = string.Empty;
             id = 0;
         }
 
-        public Bussiness(int id,string name, string phoneNumber, string cityName, string address)
+        public Bussiness(int id,string name, int phoneNumber, string cityName, string address)
         {
             this.phoneNumber = phoneNumber;
             this.name = name;
@@ -51,7 +52,7 @@ namespace LibarieModele
             //ordinea de preluare a campurilor este data de ordinea in care au fost scrise in fisier prin apelul implicit al metodei ConversieLaSir_PentruFisier()
             address =dateFisier[ADDRESS];
             name = dateFisier[NAME];
-            phoneNumber = dateFisier[PHONE];
+            phoneNumber = Convert.ToInt32(dateFisier[PHONE]);
             cityName = dateFisier[CITY];
             id = Convert.ToInt32(dateFisier[ID]);
         }
@@ -64,7 +65,7 @@ namespace LibarieModele
                 (id.ToString()  ?? "NECUNOSCUT"),
                 (address ?? " NECUNOSCUT "),    
                 (name ?? " NECUNOSCUT "),
-                (phoneNumber ?? " NECUNOSCUT "),
+                (phoneNumber.ToString() ?? " NECUNOSCUT "),
                 (cityName ?? "NECUNOSCUT"));
 
             return obiectPentruFisier;

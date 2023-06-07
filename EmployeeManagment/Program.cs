@@ -41,7 +41,7 @@ namespace EmployeeManagment
             string role = Console.ReadLine();
 
 
-            employee = new Employee(cnp, nume, prenume, gender, nrEmployee, role, nrBussiness);
+            employee = new Employee(cnp, nume, prenume, gender, nrEmployee, nrBussiness);
             nrEmployee++;
 
             Console.WriteLine(employee.Info());
