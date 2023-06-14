@@ -22,26 +22,15 @@ namespace InterfataUtilizator_WindowsForms
         AdministrareEmployee_fisierText adminEmployee;
         int nrEmployee = 0;
 
-        private Label lblHeaderNume;
-        private Label lblHeaderPrenume;
-        private Label lblHeaderGen;
-        private Label lblHeaderRol;
-        private Label lblHeaderCNP;
-        private Label lblHeaderBussiness;
-        private Label lblId;
+        string columnId = "Id";
+        string columnNume = "Nume";
+        string columnPrenume = "Prenume";
+        string columnGen = "Gen";
+        string columnRol = "Rol";
+        string columnCNP = "CNP";
+        string columnBussiness = "Bussiness";
 
-        private Label[] lblsId;
-        private Label[] lblsNume;
-        private Label[] lblsPrenume;
-        private Label[] lblsRol;
-        private Label[] lblsCNP;
-        private Label[] lblsGen;
-        private Label[] lblsBussiness;
-
-        private const int LATIME_CONTROL = 100;
-        private const int DIMENSIUNE_PAS_Y = 30;
-        private const int DIMENSIUNE_PAS_X = 120;
-        private const int OFFSET_X = 300;
+  
 
         ArrayList slujbeSelectate = new ArrayList();
         public MainEmployeePage()
@@ -71,125 +60,37 @@ namespace InterfataUtilizator_WindowsForms
         private void AfiseazaEmployees(List<Employee> employees)
         {
 
-            //adaugare control de tip Label pentru 'id';
-            lblId = new Label();
-            lblId.Width = LATIME_CONTROL;
-            lblId.Text = "Id";
-            lblId.Left = OFFSET_X -DIMENSIUNE_PAS_X;
-            lblId.ForeColor = Color.DarkGreen;
-            this.Controls.Add(lblId);
+            DataTable dataTable = new DataTable();
 
-            //adaugare control de tip Label pentru 'Nume';
-            lblHeaderNume = new Label();
-            lblHeaderNume.Width = LATIME_CONTROL;
-            lblHeaderNume.Text = "Nume";
-            lblHeaderNume.Left = OFFSET_X + 0;
-            lblHeaderNume.ForeColor = Color.DarkGreen;
-            this.Controls.Add(lblHeaderNume);
+            dataTable.Columns.Add(columnId);
+            dataTable.Columns.Add(columnNume);
+            dataTable.Columns.Add(columnPrenume);
+            dataTable.Columns.Add(columnGen);
+            dataTable.Columns.Add(columnRol);
+            dataTable.Columns.Add(columnCNP);
+            dataTable.Columns.Add(columnBussiness);
 
-            //adaugare control de tip Label pentru 'Prenume';
-            lblHeaderPrenume = new Label();
-            lblHeaderPrenume.Width = LATIME_CONTROL;
-            lblHeaderPrenume.Text = "Prenume";
-            lblHeaderPrenume.Left = OFFSET_X + DIMENSIUNE_PAS_X;
-            lblHeaderPrenume.ForeColor = Color.DarkGreen;
-            this.Controls.Add(lblHeaderPrenume);
-
-            //adaugare control de tip Label pentru 'Rol';
-            lblHeaderRol = new Label();
-            lblHeaderRol.Width = LATIME_CONTROL;
-            lblHeaderRol.Text = "Rol";
-            lblHeaderRol.Left = OFFSET_X + 2 * DIMENSIUNE_PAS_X;
-            lblHeaderRol.ForeColor = Color.DarkGreen;
-            this.Controls.Add(lblHeaderRol);
-
-            //adaugare control de tip Label pentru 'Gen';
-            lblHeaderGen = new Label();
-            lblHeaderGen.Width = LATIME_CONTROL;
-            lblHeaderGen.Text = "Gen";
-            lblHeaderGen.Left = OFFSET_X + 3 * DIMENSIUNE_PAS_X;
-            lblHeaderGen.ForeColor = Color.DarkGreen;
-            this.Controls.Add(lblHeaderGen);
-
-            //adaugare control de tip Label pentru 'CNP';
-            lblHeaderCNP = new Label();
-            lblHeaderCNP.Width = LATIME_CONTROL;
-            lblHeaderCNP.Text = "CNP";
-            lblHeaderCNP.Left = OFFSET_X + 4 * DIMENSIUNE_PAS_X;
-            lblHeaderCNP.ForeColor = Color.DarkGreen;
-            this.Controls.Add(lblHeaderCNP);
-
-            //adaugare control de tip Label pentru 'Bussiness';
-            lblHeaderBussiness = new Label();
-            lblHeaderBussiness.Width = LATIME_CONTROL;
-            lblHeaderBussiness.Text = "Bussiness";
-            lblHeaderBussiness.Left = OFFSET_X + 5 * DIMENSIUNE_PAS_X;
-            lblHeaderBussiness.ForeColor = Color.DarkGreen;
-            this.Controls.Add(lblHeaderBussiness);
-
-            int nrEmployees = employees.Count;
-            lblsId = new Label[nrEmployees];
-            lblsNume = new Label[nrEmployees];
-            lblsPrenume = new Label[nrEmployees];
-            lblsRol = new Label[nrEmployees];
-            lblsCNP = new Label[nrEmployees];
-            lblsGen = new Label[nrEmployees];
-            lblsBussiness = new Label[nrEmployees];
-             int i = 0;
-            foreach (Employee employee in employees)
+            foreach (var employee in employees)
             {
+                // Obține obiectul DataTable asociat controlului DataGridView
 
-                lblsId[i] = new Label();
-                lblsId[i].Width = LATIME_CONTROL;
-                lblsId[i].Text = employee.employeeId.ToString();
-                lblsId[i].Left = OFFSET_X + -DIMENSIUNE_PAS_X;
-                lblsId[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsId[i]);
 
-                lblsNume[i] = new Label();
-                lblsNume[i].Width = LATIME_CONTROL;
-                lblsNume[i].Text = employee.name;
-                lblsNume[i].Left = OFFSET_X + 0;
-                lblsNume[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsNume[i]);
+                // Adaugă un nou rând în DataTable
+                DataRow newRow = dataTable.NewRow();
+                newRow[columnId] = employee.employeeId;
+                newRow[columnNume] = employee.name;
+                newRow[columnPrenume] = employee.surname;
+                newRow[columnGen] = employee.gender;
+                newRow[columnRol] = employee.RoleAsString;
+                newRow[columnCNP] = employee.cnp;
+                newRow[columnBussiness] = employee.businessId;
+                // Adaugă rândul nou în DataTable
+                dataTable.Rows.Add(newRow);
 
-                lblsPrenume[i] = new Label();
-                lblsPrenume[i].Width = LATIME_CONTROL;
-                lblsPrenume[i].Text = employee.surname;
-                lblsPrenume[i].Left = OFFSET_X + DIMENSIUNE_PAS_X;
-                lblsPrenume[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsPrenume[i]);
+                // Actualizează DataSource pentru a reflecta modificările în DataGridView
 
-                lblsRol[i] = new Label();
-                lblsRol[i].Width = LATIME_CONTROL;
-                lblsRol[i].Text = employee.RoleAsString;
-                lblsRol[i].Left = OFFSET_X + 2 * DIMENSIUNE_PAS_X;
-                lblsRol[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsRol[i]);    
-
-                lblsGen[i] = new Label();
-                lblsGen[i].Width = LATIME_CONTROL;
-                lblsGen[i].Text = employee.gender;
-                lblsGen[i].Left = OFFSET_X + 3 * DIMENSIUNE_PAS_X;
-                lblsGen[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsGen[i]);
-
-                lblsCNP[i] = new Label();
-                lblsCNP[i].Width = LATIME_CONTROL;
-                lblsCNP[i].Text = employee.cnp.ToString();
-                lblsCNP[i].Left = OFFSET_X + 4 * DIMENSIUNE_PAS_X;
-                lblsCNP[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsCNP[i]);
-
-                lblsBussiness[i] = new Label();
-                lblsBussiness[i].Width = LATIME_CONTROL;
-                lblsBussiness[i].Text = employee.businessId.ToString();
-                lblsBussiness[i].Left = OFFSET_X + 5 * DIMENSIUNE_PAS_X;
-                lblsBussiness[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsBussiness[i]);
-
-                i++;
             }
+            dataGridView1.DataSource = dataTable;
         }
 
 
@@ -217,23 +118,29 @@ namespace InterfataUtilizator_WindowsForms
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            using (DeleteEmployeeForm frmDest = new DeleteEmployeeForm(adminEmployee))
+            // Verifică dacă există cel puțin un rând selectat
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                var dr = frmDest.ShowDialog(this);
-                if (dr == DialogResult.OK)
+                // Parcurge fiecare rând selectat în ordine inversă
+                for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
                 {
+                    // Obține rândul selectat
+                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[i];
 
+                    if (selectedRow.Cells[0].Value != null)
+                    {
 
-                    Controls.Clear();
+                        adminEmployee.DeleteEmployee(Convert.ToInt32(selectedRow.Cells[0].Value));
+                    }
 
-                    InitializeComponent();
-
-                    List<Employee> employees = adminEmployee.GetEmployees(out nrEmployee);
-
-                    AfiseazaEmployees(employees);
-                    frmDest.Close();
+                    // Șterge rândul din DataGridView
+                    dataGridView1.Rows.Remove(selectedRow);
                 }
+                AfiseazaEmployees(adminEmployee.GetEmployees(out nrEmployee));
             }
+
+ 
+
 
         }
 
@@ -243,6 +150,16 @@ namespace InterfataUtilizator_WindowsForms
             var formBussiness = new MainBussinessesForm();
             formBussiness.Closed += (s, args) => this.Close();
             formBussiness.Show();
+        }
+
+        private void MainEmployeePage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

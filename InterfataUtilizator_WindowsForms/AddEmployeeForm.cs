@@ -23,11 +23,15 @@ namespace InterfataUtilizator_WindowsForms
         AdministrareEmployee_fisierText adminEmployee;
         int nrEmployee;
         ArrayList slujbeSelectate = new ArrayList();
+        AdministrareBussiness_fisierText adminBusinesses;
+        private string numeFisier = "BussinessesFile";
 
         public AddEmployeeForm()
         {
            
             InitializeComponent();
+            adminBusinesses = new AdministrareBussiness_fisierText(numeFisier);
+            AfiseazaListaCompleta();
         }
 
         public AddEmployeeForm(AdministrareEmployee_fisierText admin, int _nrEmployee) : this()
@@ -63,7 +67,8 @@ namespace InterfataUtilizator_WindowsForms
             string cnp = cnpTextBox.Text;
 
             string gen;
-            string idBusiness = busIdTextBox.Text;
+            string[] st = listBusinesses.Text.Split(' ');
+            string idBusiness = st[0];
 
             if (mRadButton.Checked)
             {
@@ -100,15 +105,17 @@ namespace InterfataUtilizator_WindowsForms
             }
             catch (FormatException)
             {
-
+                nrEmployee--;
                 MessageBox.Show("Nu este un număr valid.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (FileNotFoundException)
             {
+                nrEmployee--;
                 Console.WriteLine("Fișierul specificat nu a fost găsit.");
             }
             catch (Exception ex)
             {
+                nrEmployee--;
                 Console.WriteLine("A apărut o eroare la ștergerea angajatului: {0}", ex.Message);
             }
            
@@ -126,17 +133,17 @@ namespace InterfataUtilizator_WindowsForms
 
         }
 
-        private void chkBussiness_Click(object sender, EventArgs e)
+     
+        private void AfiseazaListaCompleta()
         {
-            using (CheckBusinesses frmDest = new CheckBusinesses())
+            listBusinesses.Items.Clear();
+            int nrBussinesses;
+            List<Bussiness> bussiness = adminBusinesses.GetBussiness(out nrBussinesses);
+            foreach (Bussiness b in bussiness)
             {
-                var dr = frmDest.ShowDialog(this);
-                if (dr == DialogResult.OK)
-                {
-                   
-                    frmDest.Close();
-                }
+                listBusinesses.Items.Add(string.Format("{0} {1}", b.id, b.name));
             }
         }
+
     }
 }

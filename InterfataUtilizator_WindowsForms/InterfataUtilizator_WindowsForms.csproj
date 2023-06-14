@@ -58,24 +58,6 @@
     <Compile Include="AddEmployeeForm.Designer.cs">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CheckBusinesses.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CheckBusinesses.Designer.cs">
-      <DependentUpon>CheckBusinesses.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DeleteBussinessForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DeleteBussinessForm.Designer.cs">
-      <DependentUpon>DeleteBussinessForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DeleteEmployeeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DeleteEmployeeForm.Designer.cs">
-      <DependentUpon>DeleteEmployeeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainBussinessesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,15 +77,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddEmployeeForm.resx">
       <DependentUpon>AddEmployeeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CheckBusinesses.resx">
-      <DependentUpon>CheckBusinesses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DeleteBussinessForm.resx">
-      <DependentUpon>DeleteBussinessForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DeleteEmployeeForm.resx">
-      <DependentUpon>DeleteEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainBussinessesForm.resx">
       <DependentUpon>MainBussinessesForm.cs</DependentUpon>

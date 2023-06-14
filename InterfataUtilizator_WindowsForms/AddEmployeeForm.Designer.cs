@@ -37,7 +37,6 @@
             this.numeTextBox = new System.Windows.Forms.TextBox();
             this.prenumeTextBox = new System.Windows.Forms.TextBox();
             this.cnpTextBox = new System.Windows.Forms.TextBox();
-            this.busIdTextBox = new System.Windows.Forms.TextBox();
             this.mRadButton = new System.Windows.Forms.RadioButton();
             this.fRadButton = new System.Windows.Forms.RadioButton();
             this.manCBox = new System.Windows.Forms.CheckBox();
@@ -45,7 +44,7 @@
             this.ingCBox = new System.Windows.Forms.CheckBox();
             this.porCBox = new System.Windows.Forms.CheckBox();
             this.saveButton = new System.Windows.Forms.Button();
-            this.chkBussiness = new System.Windows.Forms.Button();
+            this.listBusinesses = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lblName
@@ -56,7 +55,6 @@
             this.lblName.Size = new System.Drawing.Size(35, 13);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "Nume";
-          
             // 
             // lblPrenume
             // 
@@ -75,7 +73,6 @@
             this.lblCNP.Size = new System.Drawing.Size(29, 13);
             this.lblCNP.TabIndex = 2;
             this.lblCNP.Text = "CNP";
-         
             // 
             // lblRol
             // 
@@ -85,7 +82,6 @@
             this.lblRol.Size = new System.Drawing.Size(23, 13);
             this.lblRol.TabIndex = 3;
             this.lblRol.Text = "Rol";
-        
             // 
             // lblGen
             // 
@@ -95,7 +91,6 @@
             this.lblGen.Size = new System.Drawing.Size(27, 13);
             this.lblGen.TabIndex = 4;
             this.lblGen.Text = "Gen";
-       
             // 
             // lblBusid
             // 
@@ -126,13 +121,6 @@
             this.cnpTextBox.Name = "cnpTextBox";
             this.cnpTextBox.Size = new System.Drawing.Size(100, 20);
             this.cnpTextBox.TabIndex = 8;
-            // 
-            // busIdTextBox
-            // 
-            this.busIdTextBox.Location = new System.Drawing.Point(164, 272);
-            this.busIdTextBox.Name = "busIdTextBox";
-            this.busIdTextBox.Size = new System.Drawing.Size(100, 20);
-            this.busIdTextBox.TabIndex = 9;
             // 
             // mRadButton
             // 
@@ -204,7 +192,7 @@
             // saveButton
             // 
             this.saveButton.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.saveButton.Location = new System.Drawing.Point(154, 338);
+            this.saveButton.Location = new System.Drawing.Point(617, 376);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(150, 33);
             this.saveButton.TabIndex = 16;
@@ -212,22 +200,20 @@
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // chkBussiness
+            // listBusinesses
             // 
-            this.chkBussiness.Location = new System.Drawing.Point(382, 338);
-            this.chkBussiness.Name = "chkBussiness";
-            this.chkBussiness.Size = new System.Drawing.Size(118, 33);
-            this.chkBussiness.TabIndex = 17;
-            this.chkBussiness.Text = "Check Bussinesses";
-            this.chkBussiness.UseVisualStyleBackColor = true;
-            this.chkBussiness.Click += new System.EventHandler(this.chkBussiness_Click);
+            this.listBusinesses.FormattingEnabled = true;
+            this.listBusinesses.Location = new System.Drawing.Point(164, 272);
+            this.listBusinesses.Name = "listBusinesses";
+            this.listBusinesses.Size = new System.Drawing.Size(180, 147);
+            this.listBusinesses.TabIndex = 18;
             // 
-            // MainBussinessesForm
+            // AddEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.chkBussiness);
+            this.Controls.Add(this.listBusinesses);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.porCBox);
             this.Controls.Add(this.ingCBox);
@@ -235,7 +221,6 @@
             this.Controls.Add(this.manCBox);
             this.Controls.Add(this.fRadButton);
             this.Controls.Add(this.mRadButton);
-            this.Controls.Add(this.busIdTextBox);
             this.Controls.Add(this.cnpTextBox);
             this.Controls.Add(this.prenumeTextBox);
             this.Controls.Add(this.numeTextBox);
@@ -245,7 +230,7 @@
             this.Controls.Add(this.lblCNP);
             this.Controls.Add(this.lblPrenume);
             this.Controls.Add(this.lblName);
-            this.Name = "MainBussinessesForm";
+            this.Name = "AddEmployeeForm";
             this.Text = "MainBussinessesForm";
             this.Load += new System.EventHandler(this.AddEmployeeForm_Load);
             this.ResumeLayout(false);
@@ -264,7 +249,6 @@
         private System.Windows.Forms.TextBox numeTextBox;
         private System.Windows.Forms.TextBox prenumeTextBox;
         private System.Windows.Forms.TextBox cnpTextBox;
-        private System.Windows.Forms.TextBox busIdTextBox;
         private System.Windows.Forms.RadioButton mRadButton;
         private System.Windows.Forms.RadioButton fRadButton;
         private System.Windows.Forms.CheckBox manCBox;
@@ -272,6 +256,6 @@
         private System.Windows.Forms.CheckBox ingCBox;
         private System.Windows.Forms.CheckBox porCBox;
         private System.Windows.Forms.Button saveButton;
-        private System.Windows.Forms.Button chkBussiness;
+        private System.Windows.Forms.ListBox listBusinesses;
     }
 }

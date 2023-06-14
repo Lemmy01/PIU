@@ -57,7 +57,7 @@ namespace NivelStocareDate
             File.WriteAllText(fileName, string.Empty);
         }
 
-        public void DeleteEmployee(int employeeId)
+        public void DeleteBussiness(int employeeId)
         {
             int nrBussinesses;
             List<Bussiness> bussinesses = GetBussiness(out nrBussinesses);

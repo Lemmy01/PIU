@@ -32,11 +32,15 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.viewButton = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buttonPanel2 = new System.Windows.Forms.Panel();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.buttonPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // emplButton
             // 
-            this.emplButton.Location = new System.Drawing.Point(12, 370);
+            this.emplButton.Location = new System.Drawing.Point(40, 401);
             this.emplButton.Name = "emplButton";
             this.emplButton.Size = new System.Drawing.Size(109, 47);
             this.emplButton.TabIndex = 8;
@@ -46,7 +50,7 @@
             // 
             // deleteButton
             // 
-            this.deleteButton.Location = new System.Drawing.Point(12, 193);
+            this.deleteButton.Location = new System.Drawing.Point(40, 178);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(109, 45);
             this.deleteButton.TabIndex = 7;
@@ -57,7 +61,7 @@
             // addButton
             // 
             this.addButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.addButton.Location = new System.Drawing.Point(12, 102);
+            this.addButton.Location = new System.Drawing.Point(40, 106);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(109, 45);
             this.addButton.TabIndex = 6;
@@ -67,7 +71,7 @@
             // 
             // viewButton
             // 
-            this.viewButton.Location = new System.Drawing.Point(12, 30);
+            this.viewButton.Location = new System.Drawing.Point(40, 40);
             this.viewButton.Name = "viewButton";
             this.viewButton.Size = new System.Drawing.Size(109, 42);
             this.viewButton.TabIndex = 5;
@@ -75,17 +79,39 @@
             this.viewButton.UseVisualStyleBackColor = true;
             this.viewButton.Click += new System.EventHandler(this.viewButton_Click_1);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(269, 39);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(544, 378);
+            this.dataGridView1.TabIndex = 9;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // buttonPanel2
+            // 
+            this.buttonPanel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonPanel2.Controls.Add(this.viewButton);
+            this.buttonPanel2.Controls.Add(this.addButton);
+            this.buttonPanel2.Controls.Add(this.emplButton);
+            this.buttonPanel2.Controls.Add(this.deleteButton);
+            this.buttonPanel2.Location = new System.Drawing.Point(-4, 2);
+            this.buttonPanel2.Name = "buttonPanel2";
+            this.buttonPanel2.Size = new System.Drawing.Size(195, 484);
+            this.buttonPanel2.TabIndex = 10;
+            // 
             // MainBussinessesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.emplButton);
-            this.Controls.Add(this.deleteButton);
-            this.Controls.Add(this.addButton);
-            this.Controls.Add(this.viewButton);
+            this.ClientSize = new System.Drawing.Size(911, 481);
+            this.Controls.Add(this.buttonPanel2);
+            this.Controls.Add(this.dataGridView1);
             this.Name = "MainBussinessesForm";
             this.Text = "MainBussinessesForm";
+            this.Load += new System.EventHandler(this.MainBussinessesForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.buttonPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -96,5 +122,7 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button viewButton;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Panel buttonPanel2;
     }
 }

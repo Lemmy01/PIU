@@ -20,36 +20,30 @@ namespace InterfataUtilizator_WindowsForms
         AdministrareBussiness_fisierText adminBussiness;
         int nrBussiness = 0;
 
-        private Label lblHeaderNume;
-        private Label lblHeaderAdress;
-        private Label lblHeaderCity;
-        private Label lblHeaderPhone;
+        string columnId="Id";
+        string columnNume= "Nume";
+        string columnCityName= "CityName";
+        string columnAddress="Address";
+        string columnPhoneNumber= "PhoneNumber";
 
-        private Label lblId;
-
-        private Label[] lblsId;
-        private Label[] lblsNume;
-        private Label[] lblsAddress;
-        private Label[] lblsPhoneNumber;
-        private Label[] lblsCityName;
-
-        private const int LATIME_CONTROL = 100;
-        private const int DIMENSIUNE_PAS_Y = 30;
-        private const int DIMENSIUNE_PAS_X = 120;
-        private const int OFFSET_X = 300;
 
         public MainBussinessesForm()
         {
-            adminBussiness = new AdministrareBussiness_fisierText(numeFisier1);
+
+     
+             adminBussiness = new AdministrareBussiness_fisierText(numeFisier1);
             adminBussiness.GetBussiness(out nrBussiness);
             InitializeComponent();
+            dataGridView1.ReadOnly = false;
+        
         }
+ 
 
         private void Form1_Load(object sender, EventArgs e)
         {
             List<Bussiness> bussinesses = adminBussiness.GetBussiness(out nrBussiness);
 
-            AfiseazaEmployees(bussinesses);
+            AfiseazaBussinesses(bussinesses);
         }
         public void RemoveControls(params Control[] controls)
         {
@@ -62,97 +56,40 @@ namespace InterfataUtilizator_WindowsForms
             }
         }
 
-        private void AfiseazaEmployees(List<Bussiness> bussinesses)
+        private void AfiseazaBussinesses(List<Bussiness> bussinesses)
         {
+           
 
-            //adaugare control de tip Label pentru 'id';
-            lblId = new Label();
-            lblId.Width = LATIME_CONTROL;
-            lblId.Text = "Id";
-            lblId.Left = OFFSET_X - DIMENSIUNE_PAS_X;
-            lblId.ForeColor = Color.DarkGreen;
-            this.Controls.Add(lblId);
+            DataTable dataTable = new DataTable();
 
-            //adaugare control de tip Label pentru 'Nume';
-            lblHeaderNume = new Label();
-            lblHeaderNume.Width = LATIME_CONTROL;
-            lblHeaderNume.Text = "Nume";
-            lblHeaderNume.Left = OFFSET_X + 0;
-            lblHeaderNume.ForeColor = Color.DarkGreen;
-            this.Controls.Add(lblHeaderNume);
+            dataTable.Columns.Add(columnId);
+            dataTable.Columns.Add(columnNume);
+            dataTable.Columns.Add(columnCityName);
+            dataTable.Columns.Add(columnAddress);
+            dataTable.Columns.Add(columnPhoneNumber);
 
-            //adaugare control de tip Label pentru 'Adress';
-            lblHeaderAdress = new Label();
-            lblHeaderAdress.Width = LATIME_CONTROL;
-            lblHeaderAdress.Text = "Adress";
-            lblHeaderAdress.Left = OFFSET_X + DIMENSIUNE_PAS_X;
-            lblHeaderAdress.ForeColor = Color.DarkGreen;
-            this.Controls.Add(lblHeaderAdress);
-
-            //adaugare control de tip Label pentru 'Phone Number';
-            lblHeaderPhone = new Label();
-            lblHeaderPhone.Width = LATIME_CONTROL;
-            lblHeaderPhone.Text = "Phone Number";
-            lblHeaderPhone.Left = OFFSET_X + 2 * DIMENSIUNE_PAS_X;
-            lblHeaderPhone.ForeColor = Color.DarkGreen;
-            this.Controls.Add(lblHeaderPhone);
-
-            //adaugare control de tip Label pentru 'City Name';
-            lblHeaderCity = new Label();
-            lblHeaderCity.Width = LATIME_CONTROL;
-            lblHeaderCity.Text = "City Name";
-            lblHeaderCity.Left = OFFSET_X + 3 * DIMENSIUNE_PAS_X;
-            lblHeaderCity.ForeColor = Color.DarkGreen;
-            this.Controls.Add(lblHeaderCity);
-
-
-            int nrBussiness = bussinesses.Count;
-            lblsId = new Label[nrBussiness];
-            lblsNume = new Label[nrBussiness];
-            lblsAddress = new Label[nrBussiness];
-            lblsPhoneNumber = new Label[nrBussiness];
-            lblsCityName = new Label[nrBussiness];       
-            int i = 0;
-            foreach (Bussiness bussiness in bussinesses)
+            foreach (var bussiness in bussinesses)
             {
+                // Obține obiectul DataTable asociat controlului DataGridView
+               
 
-                lblsId[i] = new Label();
-                lblsId[i].Width = LATIME_CONTROL;
-                lblsId[i].Text = bussiness.id.ToString();
-                lblsId[i].Left = OFFSET_X + -DIMENSIUNE_PAS_X;
-                lblsId[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsId[i]);
+                // Adaugă un nou rând în DataTable
+                DataRow newRow = dataTable.NewRow();
+                newRow[columnId] = bussiness.id;
+                newRow[columnNume] = bussiness.name;
+                newRow[columnCityName] = bussiness.cityName;
+                newRow[columnAddress] = bussiness.address;
+                newRow[columnPhoneNumber] = bussiness.phoneNumber;
 
-                lblsNume[i] = new Label();
-                lblsNume[i].Width = LATIME_CONTROL;
-                lblsNume[i].Text = bussiness.name;
-                lblsNume[i].Left = OFFSET_X + 0;
-                lblsNume[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsNume[i]);
 
-                lblsAddress[i] = new Label();
-                lblsAddress[i].Width = LATIME_CONTROL;
-                lblsAddress[i].Text = bussiness.address;
-                lblsAddress[i].Left = OFFSET_X + DIMENSIUNE_PAS_X;
-                lblsAddress[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsAddress[i]);
+                // Adaugă rândul nou în DataTable
+                dataTable.Rows.Add(newRow);
 
-                lblsPhoneNumber[i] = new Label();
-                lblsPhoneNumber[i].Width = LATIME_CONTROL;
-                lblsPhoneNumber[i].Text = bussiness.phoneNumber.ToString();
-                lblsPhoneNumber[i].Left = OFFSET_X + 2 * DIMENSIUNE_PAS_X;
-                lblsPhoneNumber[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsPhoneNumber[i]);
-
-                lblsCityName[i] = new Label();
-                lblsCityName[i].Width = LATIME_CONTROL;
-                lblsCityName[i].Text = bussiness.cityName;
-                lblsCityName[i].Left = OFFSET_X + 3 * DIMENSIUNE_PAS_X;
-                lblsCityName[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
-                this.Controls.Add(lblsCityName[i]);
-
-                i++;
+                // Actualizează DataSource pentru a reflecta modificările în DataGridView
+               
             }
+            dataGridView1.DataSource = dataTable;
+
         }
 
 
@@ -174,38 +111,41 @@ namespace InterfataUtilizator_WindowsForms
         private void viewButton_Click_1(object sender, EventArgs e)
         {
             List<Bussiness> bussinesses = adminBussiness.GetBussiness(out nrBussiness);
-            AfiseazaEmployees(bussinesses);
-
+            AfiseazaBussinesses(bussinesses);
+           
         }
 
         private void deleteButton_Click_1(object sender, EventArgs e)
         {
-            using (DeleteBussinessForm frmDest = new DeleteBussinessForm(adminBussiness))
-            {
-                var dr = frmDest.ShowDialog(this);
-                if (dr == DialogResult.OK)
+         
+            
+                // Verifică dacă există cel puțin un rând selectat
+                if (dataGridView1.SelectedRows.Count > 0)
                 {
+                    // Parcurge fiecare rând selectat în ordine inversă
+                    for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
+                    {
+                        // Obține rândul selectat
+                        DataGridViewRow selectedRow = dataGridView1.SelectedRows[i];
 
+                    if (selectedRow.Cells[0].Value != null) {
 
-                    Controls.Clear();
+                        adminBussiness.DeleteBussiness(Convert.ToInt32(selectedRow.Cells[0].Value));
+                    }
 
-                    InitializeComponent();
-
-                    List<Bussiness> employees = adminBussiness.GetBussiness(out nrBussiness);
-
-                    AfiseazaEmployees(employees);
-                    frmDest.Close();
-                }
+                        // Șterge rândul din DataGridView
+                        dataGridView1.Rows.Remove(selectedRow);
+                    }
+                AfiseazaBussinesses(adminBussiness.GetBussiness(out nrBussiness));
             }
+
+
 
         }
 
         private void bsnButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var formBussiness = new MainBussinessesForm();
-            formBussiness.Closed += (s, args) => this.Close();
-            formBussiness.Show();
+
         }
 
         private void emplButton_Click(object sender, EventArgs e)
@@ -214,6 +154,16 @@ namespace InterfataUtilizator_WindowsForms
             var formEmpl = new MainEmployeePage();
             formEmpl.Closed += (s, args) => this.Close();
             formEmpl.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void MainBussinessesForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

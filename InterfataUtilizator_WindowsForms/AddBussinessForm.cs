@@ -71,15 +71,17 @@ namespace InterfataUtilizator_WindowsForms
             }
             catch (FormatException)
             {
-
+                nrBussinesses--;
                 MessageBox.Show("Nu este un număr valid.", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (FileNotFoundException)
             {
+                nrBussinesses--;
                 Console.WriteLine("Fișierul specificat nu a fost găsit.");
             }
             catch (Exception ex)
             {
+                nrBussinesses--;
                 Console.WriteLine("A apărut o eroare la ștergerea angajatului: {0}", ex.Message);
             }
 
