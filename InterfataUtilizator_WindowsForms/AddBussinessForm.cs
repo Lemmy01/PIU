@@ -63,7 +63,6 @@ namespace InterfataUtilizator_WindowsForms
 
                 nrBussinesses++;
                 Bussiness business = new Bussiness(nrBussinesses,nume,Convert.ToInt32(phoneNumber),cityAdress,address);
-                
                 adminBussiness.AddBussiness(business);
                 DialogResult = DialogResult.OK;
                 // Salvează obiectul Employee într-un loc specific sau utilizează obiectul cum dorești

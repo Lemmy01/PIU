@@ -14,6 +14,7 @@ namespace NivelStocareDate
 
         private string numeFisier;
         private const int NR_MAX_ANGAJATI = 50;
+       private string numeFisier1 = "EmployeeFile";
         public AdministrareBussiness_fisierText(string numeFisier)
         {
             this.numeFisier = numeFisier;
@@ -57,17 +58,19 @@ namespace NivelStocareDate
             File.WriteAllText(fileName, string.Empty);
         }
 
-        public void DeleteBussiness(int employeeId)
+        public void DeleteBussiness(int bussinessId)
         {
             int nrBussinesses;
             List<Bussiness> bussinesses = GetBussiness(out nrBussinesses);
+            AdministrareEmployee_fisierText admin =new AdministrareEmployee_fisierText(numeFisier1);
 
             ClearFile(numeFisier);
 
             foreach (Bussiness bussiness in bussinesses)
             {
-                if (bussiness.id == employeeId)
+                if (bussiness.id == bussinessId)
                 {
+                    admin.DeleteEmployeeByBussinessId(bussiness.id);
                     bussinesses.Remove(bussiness);
                     break;
                 }
@@ -75,9 +78,10 @@ namespace NivelStocareDate
             foreach (Bussiness bussiness in bussinesses)
             {
 
-                if (bussiness.id > employeeId)
+                if (bussiness.id > bussinessId)
                 {
-                    bussiness.id--;
+                   admin.UpdateEmployeeId(bussiness.id, --bussiness.id);
+                  
 
                 }
                 AddBussiness(bussiness);

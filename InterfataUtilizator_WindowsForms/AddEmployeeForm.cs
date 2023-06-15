@@ -16,7 +16,8 @@ using System.Windows.Forms;
 using System.Xml;
 
 namespace InterfataUtilizator_WindowsForms
-{
+{ 
+   
     public partial class AddEmployeeForm : Form
     {
 

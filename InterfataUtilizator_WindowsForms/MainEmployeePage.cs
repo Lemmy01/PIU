@@ -22,13 +22,13 @@ namespace InterfataUtilizator_WindowsForms
         AdministrareEmployee_fisierText adminEmployee;
         int nrEmployee = 0;
 
-        string columnId = "Id";
-        string columnNume = "Nume";
-        string columnPrenume = "Prenume";
-        string columnGen = "Gen";
-        string columnRol = "Rol";
-        string columnCNP = "CNP";
-        string columnBussiness = "Bussiness";
+        private const string columnId = "Id";
+        private const string columnNume = "Nume";
+        private const string columnPrenume = "Prenume";
+        private const string columnGen = "Gen";
+        private const string columnRol = "Rol";
+        private const string columnCNP = "CNP";
+        private const string columnBussiness = "Bussiness";
 
   
 

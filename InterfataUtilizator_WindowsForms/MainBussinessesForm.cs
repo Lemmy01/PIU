@@ -20,18 +20,18 @@ namespace InterfataUtilizator_WindowsForms
         AdministrareBussiness_fisierText adminBussiness;
         int nrBussiness = 0;
 
-        string columnId="Id";
-        string columnNume= "Nume";
-        string columnCityName= "CityName";
-        string columnAddress="Address";
-        string columnPhoneNumber= "PhoneNumber";
+        private const  string columnId="Id";
+        private const string columnNume= "Nume";
+        private const string columnCityName= "CityName";
+        private const string columnAddress="Address";
+        private const string columnPhoneNumber= "PhoneNumber";
 
 
         public MainBussinessesForm()
         {
 
      
-             adminBussiness = new AdministrareBussiness_fisierText(numeFisier1);
+            adminBussiness = new AdministrareBussiness_fisierText(numeFisier1);
             adminBussiness.GetBussiness(out nrBussiness);
             InitializeComponent();
             dataGridView1.ReadOnly = false;
